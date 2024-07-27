@@ -25,9 +25,7 @@ export const createConnectionMQ = () => {
 				switch (key) {
 					case "MESSAGE":
 						const {chat_id, chat} = JSON.parse(msg.content.toString());
-
 						socket.to(chat_id).emit("recieve_chat_message", {content: chat});
-						console.log("send to ", chat_id);
 						break;
 					default:
 						break;
