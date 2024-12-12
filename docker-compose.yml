@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+    websocket-service:
+      build:
+        context: .
+      container_name: websocket-service
+      ports:
+        - "3006:3006"
+      environment:
+        AMQP_URL: amqp://user:password@rabbitmq:5672
+      networks:
+          - shared-network
+
+networks:
+  shared-network:
+    external: true
